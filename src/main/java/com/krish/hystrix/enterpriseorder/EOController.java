@@ -21,6 +21,7 @@ public class EOController {
 		// Call Address Order Validator mS
 		String response = "";
 		try {
+			System.out.println("in EO calling Validate REST API : "+System.currentTimeMillis()); 
 			StopWatch watch = new StopWatch();
 			HttpUriRequest request = new HttpGet("http://localhost:" + "" + "9091" + "/eo/validate");
 			HttpResponse httpResponse;
@@ -28,7 +29,7 @@ public class EOController {
 			httpResponse = HttpClientBuilder.create().build().execute(request);
 			watch.stop();
 			response = EntityUtils.toString(httpResponse.getEntity());
-			//System.out.println(">>>>>>>Response:" + response + "  Response time(hh:mm:SS:mS): " + watch.toString());
+			System.out.println(">>>>>>>Response:" + response + "  Response time(hh:mm:SS:mS): " + watch.toString());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
